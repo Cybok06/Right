@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biology</title>
+    <style>
+        body {
+            background-image: url('bg4.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        header img {
+            width: 150px;
+        }
+
+        .content {
+            text-align: center;
+            padding: 50px;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #fff;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: block;
+            padding: 20px;
+            font-size: 1.2em;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Button colors */
+        .btn-1 {
+            background-color: #4CAF50; /* Green */
+        }
+
+        .btn-2 {
+            background-color: #2196F3; /* Blue */
+        }
+
+        .btn-3 {
+            background-color: #FF9800; /* Orange */
+        }
+
+        .btn-4 {
+            background-color: #9C27B0; /* Purple */
+        }
+
+        /* Hover effects */
+        .btn:hover {
+            background-color: #45a049; /* Darker green */
+            transform: translateY(-8px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" style="position: fixed; top: 20px; right: 20px; padding: 10px 20px; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; text-decoration: none;">Home</a>
+
+    <header>
+        <img src="logo.jpg" alt="Logo">
+    </header>
+
+    <div class="content">
+        <h2>Biology</h2>
+        <div class="btn-container">
+            <a href="https://drive.google.com/file/d/1c0wbpqS2PaCKpL1HOnJ__PO4zCG0Xk6F/view?usp=drive_link" class="btn btn-1" target="_blank">Read Book   </a>
+            <a href="https://drive.google.com/file/d/1nBAPRGpK9mU09BCas22FFxLYaYvLqN91/view?usp=drive_link" class="btn btn-2" target="_blank">Read Book </a>
+            <a href="https://drive.google.com/file/d/1E4cHKl4SFf3tdgkeVYSJYkygSbY27-0v/view?usp=drive_link" class="btn btn-3" target="_blank">Read Book </a>
+            <a href="https://drive.google.com/file/d/1ji_5-6ZkuZq-feM__ZRLmQRO2DGWJ40k/view?usp=drive_link" class="btn btn-4" target="_blank">Read Book A+</a>
+        </div>
+    </div>
+    <div style="position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; background-color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; cursor: pointer; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" onclick="window.location.href='https://chatgpt.com/'">
+        💬
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

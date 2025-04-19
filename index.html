@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RightWay</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Slick Carousel CSS & JS for Image Slider -->
+    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <style>
+        .modal-backdrop {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease forwards;
+    z-index: 9999;
+  }
+
+  .modal-box {
+    background: #fff;
+    border: 3px dashed red;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    position: relative;
+    animation: popIn 0.6s ease forwards;
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  .warning {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+
+  #codeInput {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  #submitBtn {
+    margin-top: 15px;
+    padding: 10px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #submitBtn:hover {
+    background-color: #0056b3;
+  }
+
+  #message {
+    margin-top: 20px;
+    font-size: 16px;
+    color: green;
+    display: none;
+  }
+
+  .footer {
+    margin-top: 25px;
+    font-size: 14px;
+    color: gray;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0 }
+    to { opacity: 1 }
+  }
+
+  @keyframes popIn {
+    0% { opacity: 0; transform: scale(0.7); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+        /* Custom CSS */
+        .dark-mode .bg-dark-header {
+            background-color: #333  !important;
+        }
+
+        /* Dark mode text color */
+        .dark-mode .text-dark {
+            color: white;
+        }
+
+        /* Image Container for uniform height and object fit */
+        .image-container img {
+            object-fit: cover;
+            width: 100%;
+            height: 200px; /* Consistent height for all images */
+        }
+
+        /* Dark Mode Styles */
+        .dark-mode {
+            background-color: #1a202c; /* Dark background */
+            color: white;
+        }
+
+        /* Light Mode Styles */
+        body {
+            background-color: #f9fafb; /* Light background */
+            color: black;
+        }
+        h3{
+            color: rgb(23, 5, 102);
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1); /* Simple box shadow */
+        }
+        #search-input::placeholder{
+            color: rgb(87, 11, 11);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+           
+        }
+        #search-input{
+            color: rgb(20, 112, 1);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+        }
+       
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <!-- Header with Logo and Dark/Light Mode Toggle Emoji -->
+    <header id="header" class="bg-light-header">
+        <div class="max-w-7xl mx-auto p-4 flex justify-between items-center">
+            <img src="logo.jpg" alt="Logo"
+                 class="w-[70%] mx-auto h-auto max-h-[25vh] rounded-[8px] shadow-md">
+            <span id="mode-toggle" class="text-2xl cursor-pointer">🌙</span>
+        </div>
+    </header>
+    
+    
+
+    <!-- Image Slider -->
+    <section class="my-8">
+        <div class="w-[80%] sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3 mx-auto">
+            <div class="slider">
+                <div class="shadow-lg shadow-blue-400">
+                    <img src="image1.jpg" alt="Image 1" class="w-full h-auto object-contain scale-150">
+                </div>
+                <div class="shadow-lg shadow-teal-400">
+                    <img src="image2.jpg" alt="Image 2" class="w-full h-auto object-contain scale-150">
+                </div>
+                <div class="shadow-lg shadow-purple-400">
+                    <img src="image3.jpg" alt="Image 3" class="w-full h-auto object-contain scale-150">
+                </div>
+                <div class="shadow-lg shadow-indigo-400">
+                    <img src="image4.jpg" alt="Image 4" class="w-full h-auto object-contain scale-150">
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="confidentialModal" class="modal-backdrop">
+        <div class="modal-box">
+          <div class="warning">⚠️ CONFIDENTIAL — DO NOT SHARE EXCEPT BEING AUTHORIZED BY ADMIN</div>
+          <p>Access is restricted. Please enter the 6-digit code below to proceed.</p>
+          <input type="text" id="codeInput" maxlength="6" placeholder="Enter 6-digit code">
+          <br>
+          <button id="submitBtn">Unlock</button>
+          <div id="message">✔️ Code accepted. This message will disappear shortly...</div>
+          <div class="footer">© Cytech</div>
+        </div>
+      </div>
+<!-- Search Bar Section -->
+<section class="my-8 px-4">
+    <div class="max-w-7xl mx-auto flex items-center space-x-4">
+        <!-- Search Input -->
+        <input type="text" id="search-input" 
+                class="w-full p-4 border border-gray-300 rounded-xl shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 ease-in-out"
+               placeholder="Search Subject" 
+               onkeyup="searchSubjects()">
+
+        <!-- Clear Button -->
+        <button onclick="clearSearch()" 
+                class="p-2 bg-red-500 text-white rounded-xl hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-200 ease-in-out">
+            X
+        </button>
+    </div>
+    <!-- Category Buttons -->
+    <section class="my-4 px-4">
+        <div class="max-w-7xl mx-auto flex flex-wrap gap-2 justify-center">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded-xl" onclick="filterCategory('all')">All</button>
+            <button class="bg-green-500 text-white px-4 py-2 rounded-xl" onclick="filterCategory('general-science')">General Science</button>
+            <button class="bg-red-500 text-white px-4 py-2 rounded-xl" onclick="filterCategory('general-art')">General Art</button>
+            <button class="bg-purple-500 text-white px-4 py-2 rounded-xl" onclick="filterCategory('visual-art')">Visual Art</button>
+            <button class="bg-yellow-500 text-white px-4 py-2 rounded-xl" onclick="filterCategory('business')">Business</button>
+            <button class="bg-pink-500 text-white px-4 py-2 rounded-xl" onclick="filterCategory('home-economics')">Home Economics</button>
+            <button class="bg-teal-500 text-white px-4 py-2 rounded-xl" onclick="filterCategory('agriculture')">Agriculture</button>
+            <button class="bg-indigo-500 text-white px-4 py-2 rounded-xl" onclick="filterCategory('core')">Core Subjects</button> <!-- New Core Subjects button -->
+        </div>
+    </section>
+    
+
+</section>
+
+
+   <!-- Grid Section for Subjects -->
+<!-- Grid Section for Subjects -->
+<section class="my-8 px-4">
+    <div id="subjects-grid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 max-w-7xl mx-auto">
+      <!-- General Art -->
+      <a href="english-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="core">
+          <div class="image-container"><img src="english.png" alt="English"></div>
+          <h3 class="text-center">English</h3>
+      </a>
+      <a href="government-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="general-art">
+          <div class="image-container"><img src="government.png" alt="Government"></div>
+          <h3 class="text-center">Government</h3>
+      </a>
+      <a href="geography-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="general-art">
+          <div class="image-container"><img src="geography.png" alt="Geography"></div>
+          <h3 class="text-center">Geography</h3>
+      </a>
+      <a href="crs-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="general-art">
+          <div class="image-container"><img src="crs.png" alt="CRS"></div>
+          <h3 class="text-center">CRS</h3>
+      </a>
+      <a href="twi-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="general-art">
+          <div class="image-container"><img src="twi.png" alt="Twi"></div>
+          <h3 class="text-center">Twi</h3>
+      </a>
+      <a href="french-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="general-art">
+          <div class="image-container"><img src="french.png" alt="French"></div>
+          <h3 class="text-center">French</h3>
+      </a>
+      <a href="histroy-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="general-art">
+          <div class="image-container"><img src="History.png" alt="History"></div>
+          <h3 class="text-center">History</h3>
+      </a>
+      <a href="social-studies-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="core">
+          <div class="image-container"><img src="social-studies.png" alt="Social Studies"></div>
+          <h3 class="text-center">Social Studies</h3>
+      </a>
+  
+      <!-- General Science -->
+      <a href="biology-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="general-science">
+          <div class="image-container"><img src="biology.png" alt="Biology"></div>
+          <h3 class="text-center">Biology</h3>
+      </a>
+      <a href="physics-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="general-science">
+          <div class="image-container"><img src="physics.png" alt="Physics"></div>
+          <h3 class="text-center">Physics</h3>
+      </a>
+      <a href="chemistry-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="general-science">
+          <div class="image-container"><img src="chemistry.png" alt="Chemistry"></div>
+          <h3 class="text-center">Chemistry</h3>
+      </a>
+      <a href="math-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="core">
+          <div class="image-container"><img src="math.png" alt="Math"></div>
+          <h3 class="text-center">C-Math</h3>
+      </a>
+      <a href="math-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="general-science">
+        <div class="image-container"><img src="math.png" alt="Math"></div>
+        <h3 class="text-center">E-Math</h3>
+    </a>
+    
+      <a href="ict-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="general-science">
+          <div class="image-container"><img src="ict.png" alt="ICT"></div>
+          <h3 class="text-center">ICT</h3>
+      </a>
+      <a href="science-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="core">
+          <div class="image-container"><img src="science.png" alt="Science"></div>
+          <h3 class="text-center">Science</h3>
+      </a>
+  
+      <!-- Business -->
+      <a href="economics-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="business">
+          <div class="image-container"><img src="economics.png" alt="Economics"></div>
+          <h3 class="text-center">Economics</h3>
+      </a>
+      <a href="business-management-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="business">
+          <div class="image-container"><img src="business-management.png" alt="Business Management"></div>
+          <h3 class="text-center">Business Management</h3>
+      </a>
+      <a href="financial-accounting-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="business">
+          <div class="image-container"><img src="financial-accounting.png" alt="Financial Accounting"></div>
+          <h3 class="text-center">Financial Accounting</h3>
+      </a>
+      
+      <a href="cost-accounting-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="business">
+          <div class="image-container"><img src="cost-accounting.png" alt="Cost Accounting"></div>
+          <h3 class="text-center">Cost Accounting</h3>
+      </a>
+  
+      <!-- Home Economics -->
+      <a href="food-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="home-economics">
+          <div class="image-container"><img src="food.png" alt="Food"></div>
+          <h3 class="text-center">Food</h3>
+      </a>
+      <a href="clothing-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="home-economics">
+          <div class="image-container"><img src="clothing.png" alt="Clothing and Textiles"></div>
+          <h3 class="text-center">Clothing and Textiles</h3>
+      </a>
+      <a href="management-in-living.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="home-economics">
+          <div class="image-container"><img src="Management-in-Living.jpg" alt="Management-in-Living"></div>
+          <h3 class="text-center">Management-in-Living</h3>
+      </a>
+  
+      <!-- Visual Art -->
+      <a href="graphic-design-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="visual-art">
+          <div class="image-container"><img src="graphic design.png" alt="Graphic Design"></div>
+          <h3 class="text-center">Graphic Design</h3>
+      </a>
+      <a href="gka-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="visual-art">
+          <div class="image-container"><img src="gka.jpg" alt="GKA"></div>
+          <h3 class="text-center">General Knowledge in ART (GKA)</h3>
+      </a>
+      <a href="ceramics-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="visual-art">
+          <div class="image-container"><img src="ceramics.jpg" alt="Ceramics"></div>
+          <h3 class="text-center">Ceramics</h3>
+      </a>
+      <a href="picture-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="visual-art">
+          <div class="image-container"><img src="picture-making.jpg" alt="Picture-Making"></div>
+          <h3 class="text-center">Picture-Making</h3>
+      </a>
+      <a href="jewellery-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="visual-art">
+          <div class="image-container"><img src="jewellery.jpg" alt="Jewellery"></div>
+          <h3 class="text-center">Jewellery</h3>
+      </a>
+      <a href="sculpture-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="visual-art">
+          <div class="image-container"><img src="sculpture.png" alt="Sculpture"></div>
+          <h3 class="text-center">Sculpture</h3>
+      </a>
+  
+      <!-- Agriculture -->
+      <a href="agric-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="agriculture">
+          <div class="image-container"><img src="agric.jpg" alt="General Agric"></div>
+          <h3 class="text-center">General Agric</h3>
+      </a>
+      <a href="animal-husbandary-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="agriculture">
+          <div class="image-container"><img src="animal-husbandry.jpg" alt="Animal-Husbandry"></div>
+          <h3 class="text-center">Animal-Husbandry</h3>
+      </a>
+      <a href="crop-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="agriculture">
+          <div class="image-container"><img src="crop.jpg" alt="Crop Husbandry"></div>
+          <h3 class="text-center">Crop Husbandry</h3>
+      </a>
+      <a href="horticulture-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="agriculture">
+          <div class="image-container"><img src="horticulture.jpg" alt="Horticulture"></div>
+          <h3 class="text-center">Horticulture</h3>
+      </a>
+      <a href="forestry-page.html" class="bg-white p-6 rounded-lg shadow-md dark:bg-gray-800 dark:text-white subject-item" data-category="agriculture">
+          <div class="image-container"><img src="forestry.jpg" alt="Forestry"></div>
+          <h3 class="text-center">Forestry</h3>
+      </a>
+    </div>
+  </section>
+  
+    <!-- Carousel Script -->
+    <script>
+        $(document).ready(function () {
+            $('.slider').slick({
+                autoplay: true,
+                autoplaySpeed: 2000,
+                dots: true,
+                arrows: true,
+                infinite: true,
+                fade: true,
+                speed: 1000
+            });
+        });
+    
+        // Dark Mode Toggle
+        const modeToggle = document.getElementById('mode-toggle');
+        const body = document.body;
+        const header = document.getElementById('header');
+    
+        modeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            header.classList.toggle('bg-dark-header');
+            modeToggle.textContent = body.classList.contains('dark-mode') ? '🌞' : '🌙';
+        });
+    
+        // Search function to filter subjects
+        function searchSubjects() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const subjects = document.querySelectorAll('.subject-item');
+    
+            subjects.forEach(subject => {
+                const subjectName = subject.querySelector('h3').textContent.toLowerCase();
+                subject.style.display = subjectName.includes(searchTerm) ? 'block' : 'none';
+            });
+        }
+    
+        // Function to clear the search input
+        function clearSearch() {
+            document.getElementById('search-input').value = '';
+            searchSubjects();
+        }
+    
+        // Category filtering with animation
+        // Category filtering with animation
+        function filterCategory(selectedCategory) {
+    const subjects = document.querySelectorAll('.subject-item');
+
+    subjects.forEach(subject => {
+        const category = subject.getAttribute('data-category');
+
+        if (selectedCategory === 'all' || category === selectedCategory) {
+            subject.classList.remove('hidden');
+            setTimeout(() => {
+                subject.classList.remove('opacity-0', 'scale-95');
+                subject.classList.add('opacity-100', 'scale-100');
+            }, 10);
+        } else {
+            subject.classList.remove('opacity-100', 'scale-100');
+            subject.classList.add('opacity-0', 'scale-95');
+
+            setTimeout(() => {
+                subject.classList.add('hidden');
+            }, 300); // Match this to your Tailwind duration
+        }
+    });
+}
+const correctCode = "503860"; // Set your secure code here
+
+  document.getElementById("submitBtn").addEventListener("click", function () {
+    const inputCode = document.getElementById("codeInput").value;
+    if (inputCode === correctCode) {
+      document.getElementById("message").style.display = "block";
+      setTimeout(() => {
+        const modal = document.getElementById("confidentialModal");
+        modal.style.animation = "fadeOut 1s ease forwards";
+        setTimeout(() => modal.remove(), 1000);
+      }, 2000);
+    } else {
+      alert("❌ Incorrect code. Access denied.");
+    }
+  });
+
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>English Language</title>
+  <style>
+    body {
+      background-image: url('bg1.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+    }
+
+    header img {
+      width: 150px;
+      border-radius: 8px;
+    }
+
+    .content {
+      text-align: center;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      padding: 15px 25px;
+      font-size: 1.2em;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      width: 250px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn:nth-child(2) {
+      background-color: #4CAF50;
+    }
+
+    .btn:nth-child(3) {
+      background-color: #2196F3;
+    }
+
+    .btn:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      h2 {
+        font-size: 1.8em;
+      }
+
+      .btn {
+        width: 200px;
+        padding: 12px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 1.5em;
+      }
+
+      .btn {
+        width: 180px;
+        padding: 10px 18px;
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+    <a href="index.html" style="position: fixed; top: 20px; right: 20px; padding: 10px 20px; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; text-decoration: none;">Home</a>
+
+  <header>
+    <img src="logo.jpg" alt="Logo">
+  </header>
+
+  <div class="content">
+    <h2>English Language</h2>
+    <a href="https://drive.google.com/file/d/1la_gcZafuif1fD5KERsu7mURWjhiWbF2/view?usp=drive_link" class="btn" target="_blank">Read Book</a>
+    <a href="https://drive.google.com/file/d/10FPL_67EODAt2_TEn3nE4ptp0ajmY_11/view?usp=drive_link" class="btn" target="_blank">Read Book</a>
+  </div>
+
+  <script>
+    (function (w, d, s, o, f, js, fjs) {
+      w["botsonic_widget"] = o;
+      w[o] = w[o] || function () {
+        (w[o].q = w[o].q || []).push(arguments);
+      };
+      js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
+      js.id = o;
+      js.src = f;
+      js.async = 1;
+      fjs.parentNode.insertBefore(js, fjs);
+    })(window, document, "script", "Botsonic", "https://widget.botsonic.com/CDN/botsonic.min.js");
+
+    Botsonic("init", {
+      serviceBaseUrl: "https://api-azure.botsonic.ai",
+      token: "e04108ab-d7b2-415c-b14e-080da6ac8c6e",
+    });
+  </script>
+<div style="position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; background-color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; cursor: pointer; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" onclick="window.location.href='https://chatgpt.com/'">
+    💬
+</div>
+</body>
+</html>

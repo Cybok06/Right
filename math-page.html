@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math</title>
+    <style>
+        body {
+            background-image: url('bg1.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        header img {
+            width: 150px;
+        }
+
+        .content {
+            text-align: center;
+            padding: 50px;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #fff;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .btn2 {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #cc0b0b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        #math-iframe {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" style="position: fixed; top: 20px; right: 20px; padding: 10px 20px; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; text-decoration: none;">Home</a>
+
+    <header>
+        <img src="logo.jpg" alt="Logo">
+    </header>
+
+    <div class="content">
+        <h2>Mathematics</h2>
+        <a href="https://drive.google.com/file/d/1LQdM_ZvWJqMQu1qry-PhSjOnkTVd_5c9/view?usp=drive_link" class="btn" target="_blank">Read Book</a>
+        <br><br>
+        <button class="btn2" onclick="toggleIframe()">Solve Math Question</button>
+    </div>
+
+    <div id="math-iframe">
+        <iframe src="https://www.gauthmath.com" width="100%" height="500" frameborder="0"></iframe>
+    </div>
+
+    <script>
+        function toggleIframe() {
+            var iframe = document.getElementById('math-iframe');
+            if (iframe.style.display === 'none' || iframe.style.display === '') {
+                iframe.style.display = 'block'; // Show iframe
+            } else {
+                iframe.style.display = 'none'; // Hide iframe
+            }
+        }
+    </script>
+<div style="position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; background-color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; cursor: pointer; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" onclick="window.location.href='https://chatgpt.com/'">
+    💬
+</div>
+</body>
+</html>

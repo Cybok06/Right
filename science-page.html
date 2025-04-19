@@ -1,78 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCience</title>
-    <style>
-        body {
-            background-image: url('bg4.jpg');
-            background-size: cover;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Science</title>
+  <style>
+    body {
+      background-image: url('bg4.jpg');
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-        header {
-            text-align: center;
-            padding: 20px;
-        }
+    header {
+      text-align: center;
+      padding: 20px;
+    }
 
-        header img {
-            width: 150px;
-        }
+    header img {
+      width: 150px;
+    }
 
-        .content {
-            text-align: center;
-            padding: 50px;
-        }
+    .content {
+      text-align: center;
+      padding: 50px 20px;
+    }
 
-        h2 {
-            font-size: 2em;
-            color: #fff;
-        }
+    h2 {
+      font-size: 2em;
+      color: #fff;
+    }
 
-        .btn {
-            padding: 10px 20px;
-            font-size: 1.2em;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .btn2 {
-            padding: 10px 20px;
-            font-size: 1.2em;
-            background-color: blue;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin:5px;
-        }
+    .button-group {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
 
+    .btn, .btn2 {
+      padding: 12px 25px;
+      font-size: 1.1em;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      min-width: 140px;
+    }
 
-        .btn:hover {
-            background-color: #45a049;
-        }
-    </style>
+    .btn {
+      background-color: #4CAF50;
+    }
+
+    .btn2 {
+      background-color: #2196F3;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+
+    .btn2:hover {
+      background-color: #1976D2;
+    }
+
+    @media (max-width: 600px) {
+      .button-group {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <img src="logo.jpg" alt="Logo">
-    </header>
+  <header>
+    <img src="logo.jpg" alt="Logo" />
+  </header>
 
-    <div class="content">
-        <h2>Integrated Science.</h2>
-        <a href="https://drive.google.com/file/d/1LhOCsH5PcQh_WOcht1lF6slYGBPn2CMG/view?usp=drive_link" class="btn" target="_blank">Read Book</a><br> <br>
-        <a href="https://drive.google.com/file/d/1LhOCsH5PcQh_WOcht1lF6slYGBPn2CMG/view?usp=drive_link" class="btn2" target="_blank">Read Book</a>
+  <div class="content">
+    <h2>Integrated Science</h2>
+    <div class="button-group">
+      <a href="https://drive.google.com/file/d/1LhOCsH5PcQh_WOcht1lF6slYGBPn2CMG/view?usp=drive_link" class="btn" target="_blank">Read Book 1</a>
+      <a href="https://drive.google.com/file/d/1LhOCsH5PcQh_WOcht1lF6slYGBPn2CMG/view?usp=drive_link" class="btn2" target="_blank">Read Book 2</a>
+    </div>
+  </div>
 
-    </div>
-    <script src="script.js"></script>
-    <div style="position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; background-color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; cursor: pointer; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" onclick="window.location.href='https://chatgpt.com/'">
-        💬
-    </div>
+  <script src="script.js"></script>
+
+  <div style="position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; background-color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; cursor: pointer; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" onclick="window.location.href='https://chatgpt.com/'">
+    💬
+  </div>
+
 </body>
 </html>

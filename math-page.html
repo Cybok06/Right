@@ -1,111 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math</title>
-    <style>
-        body {
-            background-image: url('bg1.jpg');
-            background-size: cover;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Math</title>
+  <style>
+    body {
+      background-image: url('bg1.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
 
-        header {
-            text-align: center;
-            padding: 20px;
-        }
+    header {
+      text-align: center;
+      padding: 20px;
+    }
 
-        header img {
-            width: 150px;
-        }
+    header img {
+      width: 150px;
+      border-radius: 8px;
+    }
 
-        .content {
-            text-align: center;
-            padding: 50px;
-        }
+    .content {
+      text-align: center;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      animation: fadeInUp 1s ease-out forwards;
+    }
 
-        h2 {
-            font-size: 2em;
-            color: #fff;
-        }
+    h2 {
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
 
-        .btn {
-            padding: 10px 20px;
-            font-size: 1.2em;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .btn2 {
-            padding: 10px 20px;
-            font-size: 1.2em;
-            background-color: lightblue;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            margin:5px;
-        }
+    .btn, .btn2, .btn3 {
+      padding: 15px 25px;
+      font-size: 1.2em;
+      color: white;
+      border-radius: 8px;
+      width: 250px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn {
+      background-color: #4CAF50;
+    }
+
+    .btn2 {
+      background-color: lightblue;
+    }
+
     .btn3 {
-            padding: 10px 20px;
-            font-size: 1.2em;
-            background-color: lightpink;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            margin:5px;
-        }
-        .btn:hover {
-            background-color: #45a049;
-        }
+      background-color: lightpink;
+    }
 
-        #math-iframe {
-            display: none;
-            margin-top: 20px;
-        }
-    </style>
+    .btn:hover, .btn2:hover, .btn3:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn:active, .btn2:active, .btn3:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #math-iframe {
+      display: none;
+      margin-top: 30px;
+      width: 100%;
+      max-width: 900px;
+      height: 500px;
+      border: none;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      h2 {
+        font-size: 1.8em;
+      }
+
+      .btn, .btn2, .btn3 {
+        width: 200px;
+        padding: 12px 20px;
+      }
+
+      #math-iframe {
+        height: 400px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 1.5em;
+      }
+
+      .btn, .btn2, .btn3 {
+        width: 180px;
+        padding: 10px 18px;
+        font-size: 1em;
+      }
+
+      #math-iframe {
+        height: 350px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <a href="index.html" style="position: fixed; top: 20px; right: 20px; padding: 10px 20px; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; text-decoration: none;">Home</a>
+  <a href="index.html" style="position: fixed; top: 20px; right: 20px; padding: 10px 20px; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; text-decoration: none;">Home</a>
 
-    <header>
-        <img src="logo.jpg" alt="Logo">
-    </header>
+  <header>
+    <img src="logo.jpg" alt="Logo">
+  </header>
 
-    <div class="content">
-        <h2>Mathematics</h2>
-        <a href="https://drive.google.com/file/d/1pMyUy2zrIRWxtNNYqGG-NJFhq5znePVv/view?usp=sharing" class="btn" target="_blank">Core Maths </a>
-        <br>
-    <a href="https://drive.google.com/file/d/1ef3csFhC3UCJ8Ydtu5Avl04lML1VLbih/view?usp=drivesdk" class="btn3" target="_blank">Elective Maths </a><br>
+  <div class="content">
+    <h2>Mathematics</h2>
+    <a href="https://drive.google.com/file/d/1pMyUy2zrIRWxtNNYqGG-NJFhq5znePVv/view?usp=sharing" class="btn" target="_blank">Core Maths</a>
+    <a href="https://drive.google.com/file/d/1ef3csFhC3UCJ8Ydtu5Avl04lML1VLbih/view?usp=drivesdk" class="btn3" target="_blank">Elective Maths</a>
+    <button class="btn2" onclick="toggleIframe()">Solve Math Question</button>
+    <iframe id="math-iframe" src="https://www.gauthmath.com"></iframe>
+  </div>
 
-        <button class="btn2" onclick="toggleIframe()">Solve Math Question</button>
-    </div>
+  <script>
+    function toggleIframe() {
+      var iframe = document.getElementById('math-iframe');
+      iframe.style.display = (iframe.style.display === 'none' || iframe.style.display === '') ? 'block' : 'none';
+    }
+  </script>
 
-    <div id="math-iframe">
-        <iframe src="https://www.gauthmath.com" width="100%" height="500" frameborder="0"></iframe>
-    </div>
-
-    <script>
-        function toggleIframe() {
-            var iframe = document.getElementById('math-iframe');
-            if (iframe.style.display === 'none' || iframe.style.display === '') {
-                iframe.style.display = 'block'; // Show iframe
-            } else {
-                iframe.style.display = 'none'; // Hide iframe
-            }
-        }
-    </script>
-<div style="position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; background-color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; cursor: pointer; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" onclick="window.location.href='https://chatgpt.com/'">
+  <div style="position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; background-color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; cursor: pointer; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" onclick="window.location.href='https://chatgpt.com/'">
     💬
-</div>
+  </div>
 </body>
 </html>

@@ -1,69 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sculpture</title>
-    <style>
-        body {
-            background-image: url('bg3.png');
-            background-size: cover;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sculpture</title>
+  <style>
+    body {
+      background-image: url('bg3.png');
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-        header {
-            text-align: center;
-            padding: 20px;
-        }
+    header {
+      text-align: center;
+      padding: 20px;
+    }
 
-        header img {
-            width: 150px;
-        }
+    header img {
+      width: 150px;
+    }
 
-        .content {
-            text-align: center;
-            padding: 50px;
-        }
+    .content {
+      text-align: center;
+      padding: 50px 20px;
+    }
 
-        h2 {
-            font-size: 2em;
-            color: #fff;
-        }
+    h2 {
+      font-size: 2.2em;
+      color: #fff;
+    }
 
-        .btn {
-            padding: 10px 20px;
-            font-size: 1.2em;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            margin:20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
 
-        .btn:hover {
-            background-color: #45a049;
-        }
-    </style>
+    .card {
+      background-color: white;
+      width: 250px;
+      padding: 25px 20px;
+      border-radius: 15px;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    .card h3 {
+      color: #333;
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+
+    .card a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    .card a:hover {
+      background-color: #388e3c;
+    }
+
+    .home-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      text-decoration: none;
+    }
+
+    .chat-icon {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        width: 90%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <a href="index.html" style="position: fixed; top: 20px; right: 20px; padding: 10px 20px; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; text-decoration: none;">Home</a>
 
-    <header>
-        <img src="logo.jpg" alt="Logo">
-    </header>
+  <a href="index.html" class="home-btn">Home</a>
 
-     <div class="content">
-        <h2>Sculpture</h2>
-        <a href="https://drive.google.com/file/d/1QNDfxHj4mIh6fLJS8Cs59P767oH2h0ZT/view?usp=drive_link" class="btn" target="_blank">Read Book 1</a><br><br><br>
-         <a href="https://drive.google.com/file/d/1QKbpy0-SO2tCcN0UdcJ4cytiBkBJkTFA/view?usp=sharing" class="btn" target="_blank">Read Book 2 pt.1</a><br><br><br>
-         <a href="https://drive.google.com/file/d/1f7eYmLI9uFysPDQuJpMttIrvKeTj51-3/view?usp=sharing" class="btn" target="_blank">Read Book 2 pt.2</a><br><br>
+  <header>
+    <img src="logo.jpg" alt="Logo">
+  </header>
+
+  <div class="content">
+    <h2>Sculpture</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Sculpture - Book 1</h3>
+        <a href="https://drive.google.com/file/d/1QNDfxHj4mIh6fLJS8Cs59P767oH2h0ZT/view?usp=drive_link" target="_blank">Read Book</a>
+      </div>
+      <div class="card">
+        <h3>Sculpture - Book 2 pt.1</h3>
+        <a href="https://drive.google.com/file/d/1QKbpy0-SO2tCcN0UdcJ4cytiBkBJkTFA/view?usp=sharing" target="_blank">Read Book</a>
+      </div>
+      <div class="card">
+        <h3>Sculpture - Book 2 pt.2</h3>
+        <a href="https://drive.google.com/file/d/1f7eYmLI9uFysPDQuJpMttIrvKeTj51-3/view?usp=sharing" target="_blank">Read Book</a>
+      </div>
     </div>
-      <div style="position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; background-color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; cursor: pointer; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" onclick="window.location.href='https://chatgpt.com/'">
-        💬
-    </div>
-    <script src="script.js"></script>
+  </div>
+
+  <div class="chat-icon" onclick="window.location.href='https://chatgpt.com/'">
+    💬
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

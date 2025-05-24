@@ -1,137 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clothing</title>
-    <style>
-        body {
-            background-image: url('bg4.jpg');
-            background-size: cover;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #fff;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clothing</title>
+  <style>
+    body {
+      background-image: url('bg4.jpg');
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
 
-        header {
-            text-align: center;
-            padding: 20px;
-        }
+    header {
+      text-align: center;
+      padding: 20px;
+    }
 
-        header img {
-            width: 150px;
-            border-radius: 8px; /* Added border-radius */
-        }
+    header img {
+      width: 150px;
+      border-radius: 8px;
+    }
 
-        .content {
-            text-align: center;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
+    .content {
+      text-align: center;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      animation: fadeInUp 1s ease-out forwards;
+    }
 
-        h2 {
-            font-size: 2em;
-            margin-bottom: 30px;
-        }
+    h2 {
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
 
-        /* PDF Button Styles */
-        .btn {
-            padding: 15px 25px;
-            font-size: 1.2em;
-            color: white;
-            border: none;
-            background-color: #4CAF50;
-            border-radius: 8px;
-            width: 250px;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-        }
+    /* PDF Card Style */
+    .pdf-card {
+      display: inline-block;
+      background: #fff;
+      width: 280px;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      text-align: left;
+      text-decoration: none;
+      color: #333;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-        /* Different colors for each PDF button */
-        .btn:nth-child(1) {
-            background-color: #4CAF50;
-        }
+    .pdf-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
 
-        /* Responsive Design */
-        .btn:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
+    .pdf-card .card-header {
+      padding: 20px;
+      font-size: 1.1em;
+      font-weight: bold;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 10px 10px 0 0;
+    }
 
-        .btn:active {
-            transform: translateY(2px);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        }
+    .pdf-card .card-body {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
 
-        /* Animations for Mobile */
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    .pdf-card .card-body i {
+      font-size: 2em;
+      color: #4CAF50;
+    }
 
-        .content {
-            animation: fadeInUp 1s ease-out forwards;
-        }
+    .pdf-card .card-body span {
+      font-size: 1em;
+      line-height: 1.4;
+    }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            h2 {
-                font-size: 1.8em;
-            }
+    /* Fade In Animation */
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
 
-            .btn {
-                width: 200px;
-                padding: 12px 20px;
-            }
-        }
+    /* Home Button */
+    .home-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      text-decoration: none;
+    }
 
-        @media (max-width: 480px) {
-            h2 {
-                font-size: 1.5em;
-            }
+    /* Floating Chat Button */
+    .chat-launcher {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
 
-            .btn {
-                width: 180px;
-                padding: 10px 18px;
-                font-size: 1em;
-            }
-        }
+    @media (max-width: 768px) {
+      h2 { font-size: 1.8em; }
+      .pdf-card { width: 90%; }
+    }
 
-    </style>
+    @media (max-width: 480px) {
+      h2 { font-size: 1.5em; }
+      .pdf-card .card-body i { font-size: 1.5em; }
+      .pdf-card .card-body span { font-size: 0.9em; }
+    }
+
+  </style>
+
+  <!-- FontAwesome for Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <a href="index.html" style="position: fixed; top: 20px; right: 20px; padding: 10px 20px; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; text-decoration: none;">Home</a>
 
-    <header>
-        <img src="logo.jpg" alt="Logo">
-    </header>
+  <a href="index.html" class="home-btn">Home</a>
 
-    <div class="content">
-        <h2>Clothing and Textiles</h2>
-        <a href="https://drive.google.com/file/d/1GKpnmhpNjT4dn3SQEcTKEvuvy57PzTG7/view?usp=drive_link" class="btn" target="_blank">Read Book 1</a><br><br>
-        <a href="https://drive.google.com/file/d/1UsNjVoiy6eYmKPzPMDs_kE5DoGrIMgU_/view?usp=sharing" class="btn" target="_blank">Read Book 2 pt.1</a><br><br>
-         <a href="https://drive.google.com/file/d/1IQdPS_A4xvGkyj7mBUkheFLyQP6DqYV7/view?usp=sharing" class="btn" target="_blank">Read Book 2 pt.2</a><br><br>
-         <a href="https://drive.google.com/file/d/18RHfn39vOgXL3uhazqfMSbcDQ7NchHl4/view?usp=sharing" class="btn" target="_blank">Read Book 2 pt.3</a><br><br>
-         <a href="https://drive.google.com/file/d/13esQD9KWVywLSOw4vdKiuER0_sFCSlPC/view?usp=sharing" class="btn" target="_blank">Read Book 2 pt.4</a><br><br>
-         <a href="https://drive.google.com/file/d/1EeSBepxYVsIhPrFR1qDcm1wvbOGdFQzb/view?usp=sharing" class="btn" target="_blank">Read Book 2 pt.5</a><br><br>
+  <header>
+    <img src="logo.jpg" alt="Logo">
+  </header>
 
-    </div>
+  <div class="content">
+    <h2>Clothing and Textiles</h2>
 
-    
-<div style="position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; background-color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; cursor: pointer; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" onclick="window.location.href='https://chatgpt.com/'">
+    <a href="https://drive.google.com/file/d/1GKpnmhpNjT4dn3SQEcTKEvuvy57PzTG7/view?usp=drive_link" class="pdf-card" target="_blank">
+      <div class="card-header">Book 1</div>
+      <div class="card-body">
+        <i class="fas fa-tshirt"></i>
+        <span>Read the first book on clothing and textile fundamentals.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1UsNjVoiy6eYmKPzPMDs_kE5DoGrIMgU_/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Book 2 - Part 1</div>
+      <div class="card-body">
+        <i class="fas fa-tshirt"></i>
+        <span>First part of the second book with advanced textile concepts.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1IQdPS_A4xvGkyj7mBUkheFLyQP6DqYV7/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Book 2 - Part 2</div>
+      <div class="card-body">
+        <i class="fas fa-tshirt"></i>
+        <span>Continue with part two of Book 2 in the textile series.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/18RHfn39vOgXL3uhazqfMSbcDQ7NchHl4/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Book 2 - Part 3</div>
+      <div class="card-body">
+        <i class="fas fa-tshirt"></i>
+        <span>Third part of the clothing and design curriculum.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/13esQD9KWVywLSOw4vdKiuER0_sFCSlPC/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Book 2 - Part 4</div>
+      <div class="card-body">
+        <i class="fas fa-tshirt"></i>
+        <span>Explore more textile techniques in part four of Book 2.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1EeSBepxYVsIhPrFR1qDcm1wvbOGdFQzb/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Book 2 - Part 5</div>
+      <div class="card-body">
+        <i class="fas fa-tshirt"></i>
+        <span>Final part of the second book covering complete design applications.</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="chat-launcher" onclick="window.location.href='https://chatgpt.com/'">
     💬
-</div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

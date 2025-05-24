@@ -1,146 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Graphic Design</title>
-    <style>
-        body {
-            background-image: url('bg2.png');
-            background-size: cover;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Graphic Design</title>
+  <style>
+    body {
+      background-image: url('bg2.png');
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-        header {
-            text-align: center;
-            padding: 20px;
-        }
+    header {
+      text-align: center;
+      padding: 20px;
+    }
 
-        header img {
-            width: 150px;
-        }
+    header img {
+      width: 150px;
+    }
 
-        .content {
-            text-align: center;
-            padding: 50px;
-        }
+    .content {
+      text-align: center;
+      padding: 50px 20px;
+    }
 
-        h2 {
-            font-size: 2em;
-            color: #fff;
-        }
+    h2 {
+      font-size: 2.2em;
+      color: #fff;
+    }
 
-        .btn {
-            padding: 10px 20px;
-            font-size: 1.2em;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin:20px;
-        }
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
 
-        .btn:hover {
-            background-color: #45a049;
-        }
+    .card {
+      background-color: white;
+      width: 250px;
+      padding: 25px 20px;
+      border-radius: 15px;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
 
-        /* Chatbot UI Styles */
-        .chatbox {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 300px;
-            height: 400px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-        }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+    }
 
-        .chatbox-header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            font-size: 1.2em;
-            text-align: center;
-            border-radius: 10px 10px 0 0;
-        }
+    .card h3 {
+      color: #333;
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
 
-        .chatbox-body {
-            flex-grow: 1;
-            overflow-y: auto;
-            padding: 10px;
-            background-color: #f9f9f9;
-        }
+    .card a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1em;
+    }
 
-        .chatbox-footer {
-            display: flex;
-            padding: 10px;
-            background-color: #fff;
-            border-radius: 0 0 10px 10px;
-            border-top: 1px solid #ddd;
-        }
+    .card a:hover {
+      background-color: #388e3c;
+    }
 
-        .chatbox-footer input {
-            width: 80%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
+    .home-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      text-decoration: none;
+    }
 
-        .chatbox-footer button {
-            width: 20%;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    .chat-icon {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
 
-        .chatbox-footer button:hover {
-            background-color: #45a049;
-        }
-
-        .message {
-            margin: 10px 0;
-            padding: 8px 12px;
-            border-radius: 5px;
-        }
-
-        .user-message {
-            background-color: #d4edda;
-            text-align: left;
-        }
-
-        .bot-message {
-            background-color: #f8d7da;
-            text-align: left;
-        }
-
-    </style>
+    @media (max-width: 600px) {
+      .card {
+        width: 90%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <a href="index.html" style="position: fixed; top: 20px; right: 20px; padding: 10px 20px; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; text-decoration: none;">Home</a>
 
-    <header>
-        <img src="logo.jpg" alt="Logo">
-    </header>
+  <a href="index.html" class="home-btn">Home</a>
 
-    <div class="content">
-        <h2>Graphic Design</h2>
-        <a href="https://drive.google.com/file/d/19vK3NMS8-_vtpakcb_W2s6RZ2dpwKSsF/view?usp=drive_link" class="btn" target="_blank">Read Book(Content Areas)</a><br><br>
-          <a href="https://drive.google.com/file/d/1thPwVNnOEea-tUJV1WuiCGI3CtALOTOi/view?usp=sharing" class="btn" target="_blank">Read Book 1</a>
-    </div>
+  <header>
+    <img src="logo.jpg" alt="Logo">
+  </header>
 
-    <div style="position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; background-color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; cursor: pointer; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" onclick="window.location.href='https://chatgpt.com/'">
-        💬
+  <div class="content">
+    <h2>Graphic Design</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Graphic Design - Content Areas</h3>
+        <a href="https://drive.google.com/file/d/19vK3NMS8-_vtpakcb_W2s6RZ2dpwKSsF/view?usp=drive_link" target="_blank">Read Book</a>
+      </div>
+      <div class="card">
+        <h3>Graphic Design - Book 1</h3>
+        <a href="https://drive.google.com/file/d/1thPwVNnOEea-tUJV1WuiCGI3CtALOTOi/view?usp=sharing" target="_blank">Read Book</a>
+      </div>
     </div>
-  
-    </div>
+  </div>
+
+  <div class="chat-icon" onclick="window.location.href='https://chatgpt.com/'">
+    💬
+  </div>
 
 </body>
 </html>

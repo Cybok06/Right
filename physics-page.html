@@ -1,81 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Physics</title>
-    <style>
-        body {
-            background-image: url('bg4.jpg');
-            background-size: cover;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Physics</title>
+  <style>
+    body {
+      background-image: url('bg4.jpg');
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-        header {
-            text-align: center;
-            padding: 20px;
-        }
+    header {
+      text-align: center;
+      padding: 20px;
+    }
 
-        header img {
-            width: 150px;
-        }
+    header img {
+      width: 150px;
+    }
 
-        .content {
-            text-align: center;
-            padding: 50px;
-        }
+    .content {
+      text-align: center;
+      padding: 50px;
+    }
 
-        h2 {
-            font-size: 2em;
-            color: #fff;
-        }
+    h2 {
+      font-size: 2em;
+      color: #fff;
+      margin-bottom: 40px;
+    }
 
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 1.2em;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-        }
+    /* PDF Card Style */
+    .pdf-card {
+      display: inline-block;
+      background: #fff;
+      width: 280px;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      text-align: left;
+      text-decoration: none;
+      color: #333;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-        .btn:hover {
-            background-color: #45a049;
-        }
-    </style>
+    .pdf-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .pdf-card .card-header {
+      padding: 20px;
+      font-size: 1.1em;
+      font-weight: bold;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .pdf-card .card-body {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .pdf-card .card-body i {
+      font-size: 2em;
+      color: #4CAF50;
+    }
+
+    .pdf-card .card-body span {
+      font-size: 1em;
+      line-height: 1.4;
+    }
+
+    /* Home Button */
+    .home-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      text-decoration: none;
+    }
+
+    /* Floating Chat Button */
+    .chat-launcher {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+
+  <!-- FontAwesome for Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <a href="index.html" style="position: fixed; top: 20px; right: 20px; padding: 10px 20px; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; text-decoration: none;">Home</a>
 
-    <header>
-        <img src="logo.jpg" alt="Logo">
-    </header>
+  <a href="index.html" class="home-btn">Home</a>
 
-    <div class="content">
-        <h2>Physics</h2>
-        <a href="https://drive.google.com/file/d/1t50ooV_NU0xizFFF6KUBM8zl1DhsjiPN/view?usp=drive_link" class="btn" target="_blank">Read Book</a>
-        <a href="https://drive.google.com/file/d/1NsiL6auhdB1JcMjDYQq4Ir607B51eH0b/view?usp=drive_link" class="btn" target="_blank">Read Book</a>
-        <a href="https://drive.google.com/file/d/1Ht3wbmz9UKQ1GlxfC1lfUTGzAhSHFeBb/view?usp=sharing" class="btn" target="_blank">Pasco pt. 1</a><br>
-        <a href="https://drive.google.com/file/d/1to_yTQV-YE_wa0Gu_nTW2xr3Pl8W6vGy/view?usp=sharing" class="btn" target="_blank">Pasco pt. 2</a>
-        <a href="https://drive.google.com/file/d/1Gw_KTrZ2MVWnT_NCpO9jtXlGM81xCHvn/view?usp=sharing" class="btn" target="_blank">Pasco pt. 3</a>
+  <header>
+    <img src="logo.jpg" alt="Logo">
+  </header>
 
+  <div class="content">
+    <h2>Physics</h2>
 
-    </div>
+    <a href="https://drive.google.com/file/d/1t50ooV_NU0xizFFF6KUBM8zl1DhsjiPN/view?usp=drive_link" class="pdf-card" target="_blank">
+      <div class="card-header">Physics Book</div>
+      <div class="card-body">
+        <i class="fas fa-book"></i>
+        <span>Read the first Physics textbook covering fundamental concepts.</span>
+      </div>
+    </a>
 
-    <!-- Chat bubble with inline styling -->
-    <div style="position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; background-color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; cursor: pointer; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" onclick="window.location.href='https://chatgpt.com/'">
-        💬
-    </div>
+    <a href="https://drive.google.com/file/d/1NsiL6auhdB1JcMjDYQq4Ir607B51eH0b/view?usp=drive_link" class="pdf-card" target="_blank">
+      <div class="card-header">Physics Book (Alt)</div>
+      <div class="card-body">
+        <i class="fas fa-book-reader"></i>
+        <span>An alternative version of the Physics textbook for deeper understanding.</span>
+      </div>
+    </a>
 
-    <script src="script.js"></script>
-    <div style="position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; background-color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; cursor: pointer; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" onclick="window.location.href='https://chatgpt.com/'">
-        💬
-    </div>
+    <a href="https://drive.google.com/file/d/1Ht3wbmz9UKQ1GlxfC1lfUTGzAhSHFeBb/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Pasco pt. 1</div>
+      <div class="card-body">
+        <i class="fas fa-file-alt"></i>
+        <span>Part 1 of the Pasco experimental physics series.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1to_yTQV-YE_wa0Gu_nTW2xr3Pl8W6vGy/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Pasco pt. 2</div>
+      <div class="card-body">
+        <i class="fas fa-file-alt"></i>
+        <span>Continuation of Pasco physics experiments: Part 2.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1Gw_KTrZ2MVWnT_NCpO9jtXlGM81xCHvn/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Pasco pt. 3</div>
+      <div class="card-body">
+        <i class="fas fa-file-alt"></i>
+        <span>Final installment of the Pasco experimental guide: Part 3.</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="chat-launcher" onclick="window.location.href='https://chatgpt.com/'">
+    💬
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

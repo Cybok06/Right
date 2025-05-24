@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Science</title>
+  <title>Integrated Science</title>
   <style>
     body {
       background-image: url('bg4.jpg');
@@ -11,6 +11,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      color: #fff;
     }
 
     header {
@@ -24,74 +25,144 @@
 
     .content {
       text-align: center;
-      padding: 50px 20px;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      animation: fadeInUp 1s ease-out forwards;
     }
 
     h2 {
       font-size: 2em;
-      color: #fff;
+      margin-bottom: 30px;
     }
 
-    .button-group {
-      display: flex;
-      flex-direction: row;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 30px;
+    /* PDF Card Style */
+    .pdf-card {
+      display: inline-block;
+      background: #fff;
+      width: 280px;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      text-align: left;
+      text-decoration: none;
+      color: #333;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .btn, .btn2 {
-      padding: 12px 25px;
+    .pdf-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .pdf-card .card-header {
+      padding: 20px;
       font-size: 1.1em;
+      font-weight: bold;
+      background-color: #2196F3;
+      color: white;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .pdf-card .card-body {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .pdf-card .card-body i {
+      font-size: 2em;
+      color: #2196F3;
+    }
+
+    .pdf-card .card-body span {
+      font-size: 1em;
+      line-height: 1.4;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .home-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #333;
       color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 5px;
       cursor: pointer;
-      min-width: 140px;
+      font-size: 1em;
+      text-decoration: none;
     }
 
-    .btn {
-      background-color: #4CAF50;
+    .chat-launcher {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     }
 
-    .btn2 {
-      background-color: #2196F3;
+    @media (max-width: 768px) {
+      h2 { font-size: 1.8em; }
+      .pdf-card { width: 90%; }
     }
 
-    .btn:hover {
-      background-color: #45a049;
-    }
-
-    .btn2:hover {
-      background-color: #1976D2;
-    }
-
-    @media (max-width: 600px) {
-      .button-group {
-        flex-direction: column;
-        gap: 15px;
-      }
+    @media (max-width: 480px) {
+      h2 { font-size: 1.5em; }
+      .pdf-card .card-body i { font-size: 1.5em; }
+      .pdf-card .card-body span { font-size: 0.9em; }
     }
   </style>
+
+  <!-- FontAwesome for Icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
+  <a href="index.html" class="home-btn">Home</a>
+
   <header>
-    <img src="logo.jpg" alt="Logo" />
+    <img src="logo.jpg" alt="Logo">
   </header>
 
   <div class="content">
     <h2>Integrated Science</h2>
-    <div class="button-group">
-      <a href="https://drive.google.com/file/d/1LhOCsH5PcQh_WOcht1lF6slYGBPn2CMG/view?usp=drive_link" class="btn" target="_blank">Read Book 1</a>
-      <a href="https://drive.google.com/file/d/1LhOCsH5PcQh_WOcht1lF6slYGBPn2CMG/view?usp=drive_link" class="btn2" target="_blank">Read Book 2</a>
-    </div>
+
+    <a href="https://drive.google.com/file/d/1LhOCsH5PcQh_WOcht1lF6slYGBPn2CMG/view?usp=drive_link" class="pdf-card" target="_blank">
+      <div class="card-header">Book 1</div>
+      <div class="card-body">
+        <i class="fas fa-atom"></i>
+        <span>Explore foundational topics in physics, biology, and chemistry through the first integrated science book.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1LhOCsH5PcQh_WOcht1lF6slYGBPn2CMG/view?usp=drive_link" class="pdf-card" target="_blank">
+      <div class="card-header">Book 2</div>
+      <div class="card-body">
+        <i class="fas fa-flask"></i>
+        <span>Continue your science journey with deeper insights into natural phenomena and scientific principles.</span>
+      </div>
+    </a>
   </div>
 
-  <script src="script.js"></script>
-
-  <div style="position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; background-color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; cursor: pointer; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" onclick="window.location.href='https://chatgpt.com/'">
+  <div class="chat-launcher" onclick="window.location.href='https://chatgpt.com/'">
     💬
   </div>
 

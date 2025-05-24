@@ -1,143 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animal Husbandry</title>
-    <style>
-        body {
-            background-image: url('bg3.png');
-            background-size: cover;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animal Husbandry</title>
+  <style>
+    body {
+      background-image: url('bg3.png');
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
 
-        header {
-            text-align: center;
-            padding: 20px;
-        }
+    header {
+      text-align: center;
+      padding: 20px;
+    }
 
-        header img {
-            width: 150px;
-        }
+    header img {
+      width: 150px;
+      border-radius: 8px;
+    }
 
-        .content {
-            text-align: center;
-            padding: 50px;
-        }
+    .content {
+      text-align: center;
+      padding: 50px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      animation: fadeInUp 1s ease-out forwards;
+    }
 
-        h2 {
-            font-size: 2em;
-            color: #fff;
-        }
+    h2 {
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
 
-        .btn {
-            padding: 10px 20px;
-            font-size: 1.2em;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    .pdf-card {
+      background: #fff;
+      width: 280px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      color: #333;
+      text-decoration: none;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-        .btn:hover {
-            background-color: #45a049;
-        }
+    .pdf-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
 
-        /* Chatbot UI Styles */
-        .chatbox {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 300px;
-            height: 400px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-        }
+    .pdf-card .card-header {
+      padding: 20px;
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+    }
 
-        .chatbox-header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            font-size: 1.2em;
-            text-align: center;
-            border-radius: 10px 10px 0 0;
-        }
+    .pdf-card .card-body {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
 
-        .chatbox-body {
-            flex-grow: 1;
-            overflow-y: auto;
-            padding: 10px;
-            background-color: #f9f9f9;
-        }
+    .pdf-card .card-body i {
+      font-size: 2em;
+      color: #4CAF50;
+    }
 
-        .chatbox-footer {
-            display: flex;
-            padding: 10px;
-            background-color: #fff;
-            border-radius: 0 0 10px 10px;
-            border-top: 1px solid #ddd;
-        }
+    .pdf-card .card-body span {
+      font-size: 1em;
+    }
 
-        .chatbox-footer input {
-            width: 80%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
+    .home-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1em;
+    }
 
-        .chatbox-footer button {
-            width: 20%;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    .chat-launcher {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
 
-        .chatbox-footer button:hover {
-            background-color: #45a049;
-        }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        .message {
-            margin: 10px 0;
-            padding: 8px 12px;
-            border-radius: 5px;
-        }
+    @media (max-width: 768px) {
+      .pdf-card { width: 90%; }
+    }
+  </style>
 
-        .user-message {
-            background-color: #d4edda;
-            text-align: left;
-        }
-
-        .bot-message {
-            background-color: #f8d7da;
-            text-align: left;
-        }
-
-    </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <a href="index.html" style="position: fixed; top: 20px; right: 20px; padding: 10px 20px; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; text-decoration: none;">Home</a>
 
-    <header>
-        <img src="logo.jpg" alt="Logo">
-    </header>
+  <a href="index.html" class="home-btn">Home</a>
 
-    <div class="content">
-        <h2>Animal-Husbandary</h2>
-        <a href="https://drive.google.com/file/d/1CyCXa06XY2VYaH6BLul2khs-SuoKHdrl/view?usp=drive_link" class="btn" target="_blank">Read Book(Content Areas)</a>
-    </div>
+  <header>
+    <img src="logo.jpg" alt="Logo">
+  </header>
 
-    <div style="position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; background-color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; cursor: pointer; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" onclick="window.location.href='https://chatgpt.com/'">
-        💬
-    </div>
-  
-    </div>
+  <div class="content">
+    <h2>Animal Husbandry</h2>
 
-   
+    <a href="https://drive.google.com/file/d/1CyCXa06XY2VYaH6BLul2khs-SuoKHdrl/view?usp=drive_link" class="pdf-card" target="_blank">
+      <div class="card-header">Content Areas</div>
+      <div class="card-body">
+        <i class="fas fa-paw"></i>
+        <span>Introduction to Animal Husbandry content.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1dnjIYgGDc-hTyJrgTFjYf4TF_v27PLJV/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Book 1 - Part 1</div>
+      <div class="card-body">
+        <i class="fas fa-dog"></i>
+        <span>Domesticated animal breeds and care methods.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1QNZPpzT-Dh70UlRZDVLELMtZZwVyowXY/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Book 1 - Part 2</div>
+      <div class="card-body">
+        <i class="fas fa-cow"></i>
+        <span>Feeding systems and health management practices.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1KddMsf1E2p1JTdlxbE16CXM1PbJulMdD/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Book 1 - Part 3</div>
+      <div class="card-body">
+        <i class="fas fa-clinic-medical"></i>
+        <span>Animal diseases and treatment protocols.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/15S8n4YCygajIuQkBzc8YdWykA_KLKPtv/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Book 1 - Part 4</div>
+      <div class="card-body">
+        <i class="fas fa-egg"></i>
+        <span>Breeding techniques and reproductive health.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1b1TUdV7oDOz35gIagsbDAUXmpdXHHWG2/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Book 1 - Part 5</div>
+      <div class="card-body">
+        <i class="fas fa-bone"></i>
+        <span>Animal welfare laws and ethical practices.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1DEvpvaVPIETc1JVnCzjxbnsraOCN7RSe/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Book 1 - Part 6</div>
+      <div class="card-body">
+        <i class="fas fa-tractor"></i>
+        <span>Farm management and economics of livestock.</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="chat-launcher" onclick="window.location.href='https://chatgpt.com/'">
+    💬
+  </div>
+
+</body>
+</html>

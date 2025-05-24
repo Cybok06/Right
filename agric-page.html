@@ -1,144 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Genral Agric</title>
-    <style>
-        body {
-            background-image: url('bg2.png');
-            background-size: cover;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>General Agric</title>
+  <style>
+    body {
+      background-image: url('bg2.png');
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+    }
 
-        header {
-            text-align: center;
-            padding: 20px;
-        }
+    header {
+      text-align: center;
+      padding: 20px;
+    }
 
-        header img {
-            width: 150px;
-        }
+    header img {
+      width: 150px;
+      border-radius: 8px;
+    }
 
-        .content {
-            text-align: center;
-            padding: 50px;
-        }
+    .content {
+      text-align: center;
+      padding: 50px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      animation: fadeInUp 1s ease-out forwards;
+    }
 
-        h2 {
-            font-size: 2em;
-            color: #fff;
-        }
+    h2 {
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
 
-        .btn {
-            padding: 10px 20px;
-            font-size: 1.2em;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    .pdf-card {
+      background: #fff;
+      width: 280px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      color: #333;
+      text-decoration: none;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-        .btn:hover {
-            background-color: #45a049;
-        }
+    .pdf-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
 
-        /* Chatbot UI Styles */
-        .chatbox {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 300px;
-            height: 400px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-        }
+    .pdf-card .card-header {
+      padding: 20px;
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+    }
 
-        .chatbox-header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px;
-            font-size: 1.2em;
-            text-align: center;
-            border-radius: 10px 10px 0 0;
-        }
+    .pdf-card .card-body {
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
 
-        .chatbox-body {
-            flex-grow: 1;
-            overflow-y: auto;
-            padding: 10px;
-            background-color: #f9f9f9;
-        }
+    .pdf-card .card-body i {
+      font-size: 2em;
+      color: #4CAF50;
+    }
 
-        .chatbox-footer {
-            display: flex;
-            padding: 10px;
-            background-color: #fff;
-            border-radius: 0 0 10px 10px;
-            border-top: 1px solid #ddd;
-        }
+    .pdf-card .card-body span {
+      font-size: 1em;
+    }
 
-        .chatbox-footer input {
-            width: 80%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-        }
+    .home-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 1em;
+    }
 
-        .chatbox-footer button {
-            width: 20%;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    .chat-launcher {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+    }
 
-        .chatbox-footer button:hover {
-            background-color: #45a049;
-        }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        .message {
-            margin: 10px 0;
-            padding: 8px 12px;
-            border-radius: 5px;
-        }
-
-        .user-message {
-            background-color: #d4edda;
-            text-align: left;
-        }
-
-        .bot-message {
-            background-color: #f8d7da;
-            text-align: left;
-        }
-
-    </style>
+    @media (max-width: 768px) {
+      .pdf-card { width: 90%; }
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <a href="index.html" style="position: fixed; top: 20px; right: 20px; padding: 10px 20px; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; text-decoration: none;">Home</a>
 
-    <header>
-        <img src="logo.jpg" alt="Logo">
-    </header>
+  <a href="index.html" class="home-btn">Home</a>
 
-    <div class="content">
-        <h2>General Agric</h2>
-        <a href="https://drive.google.com/file/d/1-axM5t6T-G3i4YfKlY7r_ztLmjzxpZhq/view?usp=drive_link" class="btn" target="_blank">Read Book(Content Areas)</a>
-    </div>
+  <header>
+    <img src="logo.jpg" alt="Logo">
+  </header>
 
-    <div style="position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; background-color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; cursor: pointer; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" onclick="window.location.href='https://chatgpt.com/'">
-        💬
-    </div>
-  
-    </div>
+  <div class="content">
+    <h2>General Agric</h2>
+
+    <a href="https://drive.google.com/file/d/1-axM5t6T-G3i4YfKlY7r_ztLmjzxpZhq/view?usp=drive_link" class="pdf-card" target="_blank">
+      <div class="card-header">Content Areas</div>
+      <div class="card-body">
+        <i class="fas fa-seedling"></i>
+        <span>Introduction to General Agriculture concepts.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1h5yKEfGkgCUG7o3BmbudZEmyhRGSb5rT/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Book Part 1</div>
+      <div class="card-body">
+        <i class="fas fa-tractor"></i>
+        <span>Agricultural tools and mechanization basics.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1UjIN_f64ckoNNAjE3yU6zQdvYNGxKT4g/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Book Part 2</div>
+      <div class="card-body">
+        <i class="fas fa-water"></i>
+        <span>Soil management and irrigation techniques.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/13TaxQnJVJhHNMfLKVUfMBAjaXN4zDAaW/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Book Part 3</div>
+      <div class="card-body">
+        <i class="fas fa-seedling"></i>
+        <span>Crop classification and production systems.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1jw4jI4FACXzLDp4Bflqh3BbUqah8h3h7/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Book Part 4</div>
+      <div class="card-body">
+        <i class="fas fa-bug"></i>
+        <span>Pest control and crop protection strategies.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1vJogH2j7t9WNRG2XVJJDnNQdHgjYZuZ3/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Book Part 5</div>
+      <div class="card-body">
+        <i class="fas fa-fish"></i>
+        <span>Introduction to aquaculture and fishing practices.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1UpRoBd_blzxVhH8kcXwv2VoQzOasndQC/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Book Part 6</div>
+      <div class="card-body">
+        <i class="fas fa-industry"></i>
+        <span>Agro-processing and value addition methods.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1ymEVFgG4SmiuH9ZBJj4pl_V8tsaDN6h3/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Book Part 7</div>
+      <div class="card-body">
+        <i class="fas fa-balance-scale"></i>
+        <span>Agricultural economics and farm management.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1LSw_abzBCBvQHvrP5Wja52UPMWFAyKy0/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Book Part 8</div>
+      <div class="card-body">
+        <i class="fas fa-chart-line"></i>
+        <span>Marketing and extension services in agriculture.</span>
+      </div>
+    </a>
+
+    <a href="https://drive.google.com/file/d/1gM0hH7tdcAIMA2WXcgpK_LzYUh_0PxTT/view?usp=sharing" class="pdf-card" target="_blank">
+      <div class="card-header">Book Part 9</div>
+      <div class="card-body">
+        <i class="fas fa-sun"></i>
+        <span>Climate and environmental effects on agriculture.</span>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="chat-launcher" onclick="window.location.href='https://chatgpt.com/'">
+    💬
+  </div>
 
 </body>
 </html>

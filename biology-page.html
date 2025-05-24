@@ -1,106 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biology</title>
-    <style>
-        body {
-            background-image: url('bg4.jpg');
-            background-size: cover;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Biology</title>
+  <style>
+    body {
+      background-image: url('bg4.jpg');
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-        header {
-            text-align: center;
-            padding: 20px;
-        }
+    header {
+      text-align: center;
+      padding: 20px;
+    }
 
-        header img {
-            width: 150px;
-        }
+    header img {
+      width: 150px;
+    }
 
-        .content {
-            text-align: center;
-            padding: 50px;
-        }
+    .content {
+      text-align: center;
+      padding: 50px 20px;
+    }
 
-        h2 {
-            font-size: 2em;
-            color: #fff;
-        }
+    h2 {
+      font-size: 2.2em;
+      color: #fff;
+    }
 
-        .btn-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
 
-        .btn {
-            display: block;
-            padding: 20px;
-            font-size: 1.2em;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            width: 200px;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-        }
+    .card {
+      background-color: white;
+      width: 250px;
+      padding: 25px 20px;
+      border-radius: 15px;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
 
-        /* Button colors */
-        .btn-1 {
-            background-color: #4CAF50; /* Green */
-        }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+    }
 
-        .btn-2 {
-            background-color: #2196F3; /* Blue */
-        }
+    .card h3 {
+      color: #333;
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
 
-        .btn-3 {
-            background-color: #FF9800; /* Orange */
-        }
+    .card a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1em;
+    }
 
-        .btn-4 {
-            background-color: #9C27B0; /* Purple */
-        }
+    .card a:hover {
+      background-color: #388e3c;
+    }
 
-        /* Hover effects */
-        .btn:hover {
-            background-color: #45a049; /* Darker green */
-            transform: translateY(-8px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
+    .home-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      text-decoration: none;
+    }
 
-        .btn:active {
-            transform: translateY(2px);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    .chat-icon {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: black;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        width: 90%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <a href="index.html" style="position: fixed; top: 20px; right: 20px; padding: 10px 20px; background-color: #333; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; text-decoration: none;">Home</a>
 
-    <header>
-        <img src="logo.jpg" alt="Logo">
-    </header>
+  <a href="index.html" class="home-btn">Home</a>
 
-    <div class="content">
-        <h2>Biology</h2>
-        <div class="btn-container">
-            <a href="https://drive.google.com/file/d/1c0wbpqS2PaCKpL1HOnJ__PO4zCG0Xk6F/view?usp=drive_link" class="btn btn-1" target="_blank">Read Book   </a>
-            <a href="https://drive.google.com/file/d/1nBAPRGpK9mU09BCas22FFxLYaYvLqN91/view?usp=drive_link" class="btn btn-2" target="_blank">Read Book </a>
-            <a href="https://drive.google.com/file/d/1E4cHKl4SFf3tdgkeVYSJYkygSbY27-0v/view?usp=drive_link" class="btn btn-3" target="_blank">Read Book </a>
-            <a href="https://drive.google.com/file/d/1ji_5-6ZkuZq-feM__ZRLmQRO2DGWJ40k/view?usp=drive_link" class="btn btn-4" target="_blank">Read Book A+</a>
-        </div>
+  <header>
+    <img src="logo.jpg" alt="Logo">
+  </header>
+
+  <div class="content">
+    <h2>Biology</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Biology - Content Book</h3>
+        <a href="https://drive.google.com/file/d/1c0wbpqS2PaCKpL1HOnJ__PO4zCG0Xk6F/view?usp=drive_link" target="_blank">Read Book</a>
+      </div>
+      <div class="card">
+        <h3>Biology - Part 1</h3>
+        <a href="https://drive.google.com/file/d/1nBAPRGpK9mU09BCas22FFxLYaYvLqN91/view?usp=drive_link" target="_blank">Read Book</a>
+      </div>
+      <div class="card">
+        <h3>Biology - Part 2</h3>
+        <a href="https://drive.google.com/file/d/1E4cHKl4SFf3tdgkeVYSJYkygSbY27-0v/view?usp=drive_link" target="_blank">Read Book</a>
+      </div>
+      <div class="card">
+        <h3>Biology - A+ Reference</h3>
+        <a href="https://drive.google.com/file/d/1ji_5-6ZkuZq-feM__ZRLmQRO2DGWJ40k/view?usp=drive_link" target="_blank">Read Book</a>
+      </div>
     </div>
-    <div style="position: fixed; bottom: 20px; left: 20px; width: 50px; height: 50px; background-color: black; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; cursor: pointer; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);" onclick="window.location.href='https://chatgpt.com/'">
-        💬
-    </div>
-    <script src="script.js"></script>
+  </div>
+
+  <div class="chat-icon" onclick="window.location.href='https://chatgpt.com/'">
+    💬
+  </div>
+
+  <script src="script.js"></script>
+
 </body>
 </html>
